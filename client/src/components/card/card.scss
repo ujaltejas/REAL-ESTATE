@@ -1,0 +1,183 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .imageContainer {
+        position: relative;
+        height: 200px;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .status {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: capitalize;
+            color: white;
+
+            &.for-sale {
+                background-color: #4caf50;
+            }
+
+            &.for-rent {
+                background-color: #2196f3;
+            }
+
+            &.sold {
+                background-color: #f44336;
+            }
+
+            &.rented {
+                background-color: #ff9800;
+            }
+        }
+    }
+
+    .textContainer {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 2.8em;
+            line-height: 1.4;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: rgb(182, 77, 243);
+                }
+            }
+        }
+
+        .address {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            margin: 0;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(182, 77, 243);
+            margin: 5px 0;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+
+            .features {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                .featureItem {
+                    display: flex;
+                    gap: 5px;
+                    align-items: center;
+                    background-color: rgb(233, 227, 246);
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    font-size: 13px;
+                    color: #555;
+
+                    img {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+
+            .icons {
+                display: flex;
+                gap: 10px;
+
+                .iconItem {
+                    border: 1px solid rgb(182, 77, 243);
+                    padding: 5px;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    gap: 3px;
+                    transition: all 0.3s;
+
+                    img {
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    &:hover {
+                        background-color: rgb(222, 185, 243);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .card {
+        .textContainer {
+            .bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+
+                .features {
+                    width: 100%;
+                }
+
+                .icons {
+                    width: 100%;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+}

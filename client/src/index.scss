@@ -1,0 +1,32 @@
+// Import Google Font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+// Reset and base styles
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+// Variables
+:root {
+    --primary-color: rgb(182,77,243);
+    --primary-dark: rgb(186, 128, 220);
+    --text-dark: #333;
+    --text-light: #666;
+    --background-light: #f9f9f9;
+    --white: #fff;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --border-radius: 10px;
+}

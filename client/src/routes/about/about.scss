@@ -1,0 +1,138 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.about-page {
+    .hero {
+        height: 400px;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                    url('/about-hero.jpg') center/cover no-repeat;
+        @include flex-center;
+        text-align: center;
+        color: $white;
+
+        .content {
+            h1 {
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                margin-bottom: $spacing-sm;
+                font-weight: 700;
+            }
+
+            p {
+                font-size: clamp(1.1rem, 2vw, 1.5rem);
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .container {
+        max-width: $breakpoint-xl;
+        margin: 0 auto;
+        padding: 0 $spacing-lg;
+    }
+
+    section {
+        padding: $spacing-xl 0;
+
+        h2 {
+            text-align: center;
+            @include heading-1;
+            color: $text-dark;
+            margin-bottom: $spacing-xl;
+        }
+    }
+
+    .mission {
+        background-color: $white;
+
+        p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto $spacing-xl;
+            @include body-text;
+            color: $text-light;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: $spacing-lg;
+
+            .stat-card {
+                text-align: center;
+                padding: $spacing-lg;
+                background: $white;
+                border-radius: $border-radius-lg;
+                @include card-shadow;
+                @include hover-lift;
+
+                h3 {
+                    font-size: $font-size-3xl;
+                    color: $primary-color;
+                    margin-bottom: $spacing-xs;
+                }
+
+                p {
+                    font-size: $font-size-base;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .values {
+        background-color: $background-light;
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: $spacing-lg;
+
+            .value-card {
+                text-align: center;
+                padding: $spacing-lg;
+                background: $white;
+                border-radius: $border-radius-lg;
+                @include card-shadow;
+                @include hover-lift;
+
+                i {
+                    font-size: $font-size-3xl;
+                    color: $primary-color;
+                    margin-bottom: $spacing-sm;
+                }
+
+                h3 {
+                    @include heading-2;
+                    color: $text-dark;
+                    margin-bottom: $spacing-sm;
+                }
+
+                p {
+                    color: $text-light;
+                    @include body-text;
+                }
+            }
+        }
+    }
+}
+
+// Responsive Design
+@include md {
+    .about-page {
+        section {
+            padding: $spacing-lg 0;
+        }
+
+        .container {
+            padding: 0 $spacing-sm;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+} 

@@ -1,0 +1,616 @@
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .not-authenticated {
+        text-align: center;
+        padding: 100px 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            color: #666;
+            font-weight: 500;
+        }
+    }
+
+    .profile-header {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 24px;
+        overflow: hidden;
+
+        .profile-cover {
+            height: 200px;
+            background: linear-gradient(135deg, #6B8DD6 0%, #8E37D7 100%);
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            margin-top: -60px;
+            position: relative;
+
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 4px solid #fff;
+                overflow: hidden;
+                background: #fff;
+                margin-right: 24px;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .avatar-placeholder {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #e0e0e0;
+                    color: #fff;
+                    font-size: 48px;
+                    font-weight: 500;
+                    position: relative;
+                }
+
+                .avatar-wrapper {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .avatar-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                &:hover .avatar-overlay {
+                    opacity: 1;
+                }
+            }
+
+            .profile-details {
+                h1 {
+                    margin: 0;
+                    color: #333;
+                    font-size: 24px;
+                }
+
+                p {
+                    margin: 8px 0 0;
+                    color: #666;
+                }
+            }
+
+            .logout-button {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                padding: 8px 20px;
+                background: #ff4757;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background: #ff6b81;
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
+        }
+    }
+
+    .profile-content {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+
+        .profile-tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 16px;
+
+            button {
+                background: none;
+                border: none;
+                padding: 8px 16px;
+                font-size: 16px;
+                color: #666;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border-radius: 4px;
+
+                &:hover {
+                    background: #f5f5f5;
+                }
+
+                &.active {
+                    color: #8E37D7;
+                    font-weight: 500;
+                    background: rgba(142, 55, 215, 0.1);
+                }
+            }
+        }
+
+        .tab-content {
+            .alert {
+                padding: 12px 16px;
+                border-radius: 4px;
+                margin-bottom: 20px;
+                font-size: 14px;
+
+                &.alert-error {
+                    background-color: #ffe5e5;
+                    color: #d63031;
+                    border: 1px solid #ffcccc;
+                }
+
+                &.alert-success {
+                    background-color: #e8f5e9;
+                    color: #2ecc71;
+                    border: 1px solid #c8e6c9;
+                }
+            }
+
+            .edit-profile-form {
+                background: #f8f9fa;
+                padding: 24px;
+                border-radius: 8px;
+                margin-bottom: 24px;
+
+                .form-group {
+                    margin-bottom: 20px;
+
+                    label {
+                        display: block;
+                        margin-bottom: 8px;
+                        font-weight: 500;
+                        color: #333;
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 10px 12px;
+                        border: 1px solid #ddd;
+                        border-radius: 4px;
+                        font-size: 16px;
+
+                        &:focus {
+                            outline: none;
+                            border-color: #8E37D7;
+                            box-shadow: 0 0 0 2px rgba(142, 55, 215, 0.2);
+                        }
+                    }
+
+                    .error-input {
+                        border-color: #e74c3c !important;
+                    }
+
+                    .input-error {
+                        color: #e74c3c;
+                        font-size: 0.85rem;
+                        margin-top: 0.25rem;
+                    }
+                }
+
+                .form-actions {
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 12px;
+
+                    button {
+                        padding: 10px 20px;
+                        border-radius: 4px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+
+                        &.cancel-button {
+                            background: #f1f1f1;
+                            color: #666;
+                            border: none;
+
+                            &:hover {
+                                background: #e0e0e0;
+                            }
+                        }
+
+                        &.save-button {
+                            background: #8E37D7;
+                            color: white;
+                            border: none;
+
+                            &:hover {
+                                background: #7b2cbf;
+                            }
+
+                            &:disabled {
+                                background: #b794f4;
+                                cursor: not-allowed;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .personal-info {
+                display: grid;
+                gap: 24px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+                .info-card {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+
+                    .card-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 16px;
+
+                        h3 {
+                            margin: 0;
+                            color: #333;
+                            font-size: 18px;
+                        }
+
+                        .edit-button {
+                            background: #8E37D7;
+                            color: white;
+                            border: none;
+                            padding: 6px 12px;
+                            border-radius: 4px;
+                            font-size: 14px;
+                            cursor: pointer;
+                            transition: background 0.3s ease;
+
+                            &:hover {
+                                background: #7b2cbf;
+                            }
+                        }
+                    }
+
+                    h3 {
+                        margin: 0 0 16px;
+                        color: #333;
+                        font-size: 18px;
+                    }
+
+                    .info-item {
+                        display: flex;
+                        margin-bottom: 12px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .label {
+                            width: 120px;
+                            color: #666;
+                            font-weight: 500;
+                        }
+
+                        .value {
+                            color: #333;
+                            flex: 1;
+                        }
+                    }
+                }
+            }
+
+            .listings,
+            .favorites {
+                h3 {
+                    margin: 0 0 20px;
+                    color: #333;
+                }
+
+                .empty-state {
+                    text-align: center;
+                    padding: 40px;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    color: #666;
+                }
+
+                .loading-state {
+                    text-align: center;
+                    padding: 40px;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    color: #666;
+                }
+
+                .error-state {
+                    text-align: center;
+                    padding: 40px;
+                    background: #fff0f0;
+                    border-radius: 8px;
+                    border: 1px solid #ffcccc;
+                    color: #d63031;
+
+                    p {
+                        margin: 0 0 16px;
+                    }
+
+                    .retry-button {
+                        background: #d63031;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: background 0.3s ease;
+
+                        &:hover {
+                            background: #e84393;
+                        }
+
+                        &:active {
+                            transform: translateY(1px);
+                        }
+                    }
+                }
+            }
+
+            .listings-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .add-property-button {
+                    background: #8E37D7;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        background: #7b2cbf;
+                    }
+
+                    &:active {
+                        transform: translateY(1px);
+                    }
+                }
+            }
+
+            .listings-grid,
+            .favorites-grid {
+                display: grid;
+                gap: 24px;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .property-card {
+                background: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+                }
+
+                .property-image {
+                    height: 180px;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .no-image {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #f0f0f0;
+                        color: #999;
+                        font-size: 14px;
+                    }
+                }
+
+                .property-details {
+                    padding: 16px;
+
+                    h4 {
+                        margin: 0 0 8px;
+                        font-size: 18px;
+                        color: #333;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .property-price {
+                        font-size: 20px;
+                        font-weight: 600;
+                        color: #8E37D7;
+                        margin: 0 0 8px;
+                    }
+
+                    .property-location {
+                        color: #666;
+                        margin: 0 0 12px;
+                        font-size: 14px;
+                    }
+
+                    .property-features {
+                        display: flex;
+                        gap: 12px;
+                        margin-bottom: 16px;
+
+                        span {
+                            font-size: 13px;
+                            color: #666;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+
+                    .property-actions {
+                        display: flex;
+                        gap: 8px;
+
+                        button {
+                            flex: 1;
+                            padding: 8px 0;
+                            border-radius: 4px;
+                            font-size: 14px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+
+                            &.edit-property-button {
+                                background: #f1f1f1;
+                                color: #666;
+                                border: none;
+
+                                &:hover {
+                                    background: #e0e0e0;
+                                }
+                            }
+
+                            &.view-property-button {
+                                background: #8E37D7;
+                                color: white;
+                                border: none;
+
+                                &:hover {
+                                    background: #7b2cbf;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 16px;
+
+        .profile-header {
+            .profile-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+                .profile-avatar {
+                    margin-right: 0;
+                    margin-bottom: 16px;
+                }
+
+                .logout-button {
+                    position: static;
+                    margin-top: 16px;
+                    width: 100%;
+                    max-width: 200px;
+                }
+            }
+        }
+
+        .profile-content {
+            padding: 16px;
+
+            .profile-tabs {
+                overflow-x: auto;
+                padding-bottom: 8px;
+
+                button {
+                    white-space: nowrap;
+                }
+            }
+
+            .tab-content {
+                .personal-info {
+                    grid-template-columns: 1fr;
+                }
+
+                .edit-profile-form {
+                    padding: 16px;
+
+                    .form-actions {
+                        flex-direction: column;
+
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .listings-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 16px;
+
+                    .add-property-button {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                }
+
+                .property-card {
+                    .property-details {
+                        .property-actions {
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
